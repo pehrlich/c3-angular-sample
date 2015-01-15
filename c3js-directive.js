@@ -38,6 +38,12 @@ angular.module('gridshore.c3js.chart', [])
 		if ($scope.showLabels && $scope.showLabels === "true") {
 			config.data.labels=true;
 		}
+		if ($scope.mouseover) {
+			config.data.onmouseover=$scope.mouseover;
+		}
+		if ($scope.mouseout) {
+			config.data.onmouseout=$scope.mouseout;
+		}
 		if ($scope.showSubchart && $scope.showSubchart === "true") {
 			config.subchart = {"show":true};
 		}
@@ -217,6 +223,8 @@ angular.module('gridshore.c3js.chart', [])
 			"enableZoom":"@enableZoom",
 			"chartData":"=chartData",
 			"chartColumns":"=chartColumns",
+			"mouseover":"=",
+			"mouseout":"=",
 			"chartX":"=chartX"
 		},
 		"template":"<div><div id='{{bindto}}'></div><div ng-transclude></div></div>",
