@@ -202,6 +202,11 @@ angular.module('gridshore.c3js.chart', [])
 
         $scope.chart = c3.generate($scope.config);
 
+        // expose chart for direct api access
+        if ($scope.init) {
+          $scope.init($scope.chart, $scope.config)
+        }
+
 		// $scope.chart.load(data);
 	}
 }])
@@ -225,6 +230,7 @@ angular.module('gridshore.c3js.chart', [])
 			"chartColumns":"=chartColumns",
 			"mouseover":"=",
 			"mouseout":"=",
+			"init":"=",
 			"chartX":"=chartX"
 		},
 		"template":"<div><div id='{{bindto}}'></div><div ng-transclude></div></div>",
